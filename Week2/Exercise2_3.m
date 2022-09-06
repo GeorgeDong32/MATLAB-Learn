@@ -1,0 +1,14 @@
+a = 2:3:8
+size_a = size(a)
+b = [a' a' a']
+size_b = size(b)
+c = b(1:2:3,1:2:3)
+size_c = size(c)
+d = a + b(2,:)
+size_d = size(d)
+w = [zeros(1,3) ones(3,1)' 3:5']
+size_w = size(w)
+b([1 3], 2) = b([3 1],2)
+size_b = size(b)
+e = 1:-1:5
+size_e = size(e)
