@@ -12,7 +12,7 @@
 
   value如下图
 
-  ![photo](.\Ex2.1.c.png)
+  ![photo](Ex2.1.c.png)
 
 * (d)
 
