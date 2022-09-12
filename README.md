@@ -6,3 +6,5 @@ Here are my codes while learning MATLAB. You can use them freely for educational
 <h1>
 
 ## License
+
+<img src="https://github.com/GeorgeDong32/MATLAB-Learn/blob/main/MATLAB-Learn_License.png">
