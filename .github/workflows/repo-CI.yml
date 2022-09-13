@@ -21,7 +21,6 @@ jobs:
         env:
             GITHUB_TOKEN: "${{ secrets.AM_TOKEN }}"
             MERGE_LABELS: "automerge,!in progress,!invalid"
-            MERGE_REMOVE_LABELS: "automerge"
             MERGE_ADD_LABELS: "automerged"
             MERGE_METHOD: "squash"
             MERGE_COMMIT_MESSAGE: "pull-request-title"
