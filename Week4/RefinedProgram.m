@@ -35,29 +35,29 @@ end
 discriminant = b^2 - 4 * a * c;
 % Solve for the roots, depending on the value of the discriminant 
 if discriminant > 0 % there are two real roots, so...
-x1 = ( -b + sqrt(discriminant) ) / ( 2 * a );
-x2 = ( -b - sqrt(discriminant) ) / ( 2 * a );
-disp ('This equation has two real roots:');
-fprintf ('x1 = %f\n', x1);
-fprintf ('x2 = %f\n', x2);
+    x1 = ( -b + sqrt(discriminant) ) / ( 2 * a );
+    x2 = ( -b - sqrt(discriminant) ) / ( 2 * a );
+    disp ('This equation has two real roots:');
+    fprintf ('x1 = %f\n', x1);
+    fprintf ('x2 = %f\n', x2);
 elseif discriminant == 0 % there is one repeated root, so...
-x1 = ( -b ) / ( 2 * a );
-disp ('This equation has two identical real roots:');
-fprintf ('x1 = x2 = %f\n', x1);
+    x1 = ( -b ) / ( 2 * a );
+    disp ('This equation has two identical real roots:');
+    fprintf ('x1 = x2 = %f\n', x1);
 else % there are complex roots, so ...
-real_part = ( -b ) / ( 2 * a );
-% uncomplete refine -- 复数求解
-imag_part = sqrt (discriminant) / ( 2 * a );
-root1 = real_part + imag_part;
-root2 = real_part - imag_part;
-disp ('This equation has complex roots:');
+    real_part = ( -b ) / ( 2 * a );
+    % uncomplete refine -- 复数求解
+    imag_part = sqrt (discriminant) / ( 2 * a );
+    root1 = real_part + imag_part;
+    root2 = real_part - imag_part;
+    disp ('This equation has complex roots:');
     if real(root1) == 0
         fprintf('x1 = %f i\n', imag(root1) );
     elseif imag(root1) == 0
         fprintf('x1 = %f\n', real(root1));
     else
-        if imag(root2) < 0
-            fprintf('x1 = %f - i %f\n', real(root1), abs(imag(root1)) );
+        if imag(root1) < 0
+            fprintf('x1 = %f -i %f\n', real(root1), abs(imag(root1)) );
         else
             fprintf('x1 = %f +i %f\n', real(root1), imag(root1) );
         end        
@@ -69,7 +69,7 @@ disp ('This equation has complex roots:');
         fprintf('x2 = %f\n', real(root2));
     else
         if imag(root2) < 0
-            fprintf('x2 = %f - i %f\n', real(root2), abs(imag(root2)) );
+            fprintf('x2 = %f -i %f\n', real(root2), abs(imag(root2)) );
         else
             fprintf('x2 = %f +i %f\n', real(root2), imag(root2) );
         end
