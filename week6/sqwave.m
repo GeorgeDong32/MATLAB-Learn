@@ -1,7 +1,7 @@
-% Script file: Exercise5_22.m
+% Script file: sqwave.m
 %
 % Purpose:
-% Dealing with Fourier series
+% output square wave
 %
 % Record of revisions:
 % Date     Programmer   Description of change
@@ -9,7 +9,12 @@
 % 22/10/12 GeorgeDong32 Version 1.0
 %
 % Define variables:
-% L square wave width
-% n the number of terms of the Fourier series
+% x 
+% L the width of square wave
 
-
+n = x / (L/2)
+if(n % 2 == 0)
+    sqwvalue = 1
+else
+    sqwvalue = -1
+end
