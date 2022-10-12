@@ -1,3 +1,4 @@
+function sqwvalue = sqwave(x,L)
 % Script file: sqwave.m
 %
 % Purpose:
@@ -12,9 +13,9 @@
 % x 
 % L the width of square wave
 
-n = x / (L/2)
-if(n % 2 == 0)
-    sqwvalue = 1
+n = x / (L/2);
+if mod(n,2) == 0
+    sqwvalue = 1;
 else
-    sqwvalue = -1
+    sqwvalue = -1;
 end
