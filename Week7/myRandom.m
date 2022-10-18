@@ -7,7 +7,7 @@ function mR = myRandom(n)
 % Record of revisions:
 % Date     Programmer   Description of change
 % ======== ============ =====================
-% 22/10/18 GeorgeDong32 Version 1.0
+% 22/10/18 GeorgeDong32 Version 1.1
 %
 % Define variables:
 % x1,x2 base random number
