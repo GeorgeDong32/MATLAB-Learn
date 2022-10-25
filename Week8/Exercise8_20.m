@@ -6,7 +6,7 @@
 % Record of revisions:
 % Date     Programmer   Description of change
 % ======== ============ =====================
-% 22/10/25 GeorgeDong32 Version 1.0
+% 22/10/25 GeorgeDong32 Version 1.1
 %
 % Defined variables:
 % [x y] plots' x and y values
@@ -18,14 +18,23 @@ z = exp(x + y * 1i);
 %drawing mesh plot
 figure();
 mesh(x, y, real(z));
-title('Mesh Plot of 8.20');
+title('\bfMesh Plot of 8.20');
+xlabel('\bfx');
+ylabel('\bfy');
+zlabel('\bfreal part of z');
 
 %draw surface plot
 figure();
 surf(x, y, real(z));
-title('Surface Plot of 8.20');
+title('\bfSurface Plot of 8.20');
+xlabel('\bfx');
+ylabel('\bfy');
+zlabel('\bfreal part of z');
 
 %draw contour plot
 figure();
 contourf(x, y, real(z));
-title('fContour Plot of 8.20');
+title('\bfContour Plot of 8.20');
+xlabel('\bfx');
+ylabel('\bfy');
+zlabel('\bfreal part of z');
