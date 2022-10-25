@@ -3,19 +3,27 @@
 % Purpose:
 % Dealing with Complex number plots
 %
+% Requirements:
+% getEquation1.m
+% getEquation2.m
+%
 % Record of revisions:
 % Date     Programmer   Description of change
 % ======== ============ =====================
-% 22/10/18 GeorgeDong32 Version 1.0
+% 22/10/25 GeorgeDong32 Version 1.0
 %
 % Defined variables:
-% ts t's span
+% t t span
 
-[t,y]=ode45(@(t,y) 2*t,0:0.1:5,1);
-plot(t,y)
-% odefun_handle = @getEquation;
-% t = [0 6];
-% x0(1) = 0;
-% x0(2) = 0;
-% 
-% [t,x] = ode45(odefun_handle,t);
+eq1 = @getEquation1;
+eq2 = @getEquation2;
+t = [0 6];
+
+[t,x1] = ode45(eq1,t,0);
+[t,x2] = ode45(eq2,t,0);
+figure();
+plot(t,x1);
+hold on;
+plot(t,x2);
+title('first-order differential equations');
+legend('(a)','(b)');
