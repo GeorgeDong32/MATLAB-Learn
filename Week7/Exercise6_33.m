@@ -13,16 +13,17 @@
 % mynd my normal distribution
 % var_mynd deviation of myRandom function
 
-% Generate random numbers
+%设置图像在屏幕的位置
 set(gcf, 'unit', 'normalized', 'position', [0.2, 0.2, 0.55, 0.55]);
-stdnd = randn(100000, 1);
+% Generate random numbers
+stdnd = randn(100000, 1); %生成标准正态分布
 histogram(stdnd, 50, 'Normalization', 'probability');
 hold on;
-mynd = myRandom(100000);
+mynd = myRandom(100000); %生成自己构造的正态分布
 histogram(mynd, 50, 'Normalization', 'probability', 'EdgeAlpha', 0.3);
-% Calculate variance
+% 计算方差
 var_mynd = var(mynd);
-% Add annotations
+% 添加注解和标记
 legend("Standard normal distribution", "My normal distribution")
 title("通过随机分布生成正态分布");
 text(-4, 0.05, ['生成函数方差=', num2str(var_mynd)]);
