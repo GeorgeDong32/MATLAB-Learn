@@ -29,8 +29,3 @@ MyPlotFunction(plot_info(2))
 plot_info(3).x_data = -2 * pi:0.01:2 * pi; plot_info(3).y_data = tan(x2);
 plot_info(3).type = 'linear'; plot_info(3).plot_title = 'tan(x)';
 MyPlotFunction(plot_info(3))
-
-% 没有data的structure,应报错
-plot_info(4).type = 'linear';
-plot_info(4).plot_title = 'No data';
-MyPlotFunction(plot_info(4))

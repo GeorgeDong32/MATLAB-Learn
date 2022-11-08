@@ -23,4 +23,4 @@ inputstr = 'This sentence is a test, is it not';
 targetstr = 'is';
 replacestr = 'is not';
 resultstr = strrep(inputstr, targetstr, replacestr);
-fprintf('The result is: \"%s\"', resultstr)
+fprintf(resultstr)
