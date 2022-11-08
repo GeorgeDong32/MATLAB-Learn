@@ -7,11 +7,17 @@ function plotresult = MyPlotFunction(plotinfo)
     % Record of revisions:
     % Date     Programmer   Description of change
     % ======== ============ =====================
-    % 22/11/8 GeorgeDong32 Version 1.0
+    % 22/11/8 GeorgeDong32 Version 2.0
     %
     % Defined variables:
     % plotinfo plot信息Structure数组
     % plotresult plot结果返回值
+
+    % 空数据返回错误
+    if (isempty(plotinfo.x_data) || isempty(plotinfo.y_data))
+        plotresult = false;
+        error('Input empty data!')
+    end
 
     % 有数据情况准备做图
     figure();
@@ -22,10 +28,14 @@ function plotresult = MyPlotFunction(plotinfo)
             semilogx(plotinfo.x_data, plotinfo.y_data)
         elseif (plotinfo.type == "semilogy")
             semilogy(plotinfo.x_data, plotinfo.y_data)
+        elseif (plotinfo.type == "loglog")
+            loglog(plotinfo.x_data, plotinfo.y_data)
         else
             plot(plotinfo.x_data, plotinfo.y_data)
         end
 
+    else
+        plot(plotinfo.x_data, plotinfo.y_data)
     end
 
     % 判断其他附加绘图条件
@@ -43,10 +53,14 @@ function plotresult = MyPlotFunction(plotinfo)
 
     if (~isempty(plotinfo.x_range))
         xlim(plotinfo.x_range)
+    else
+        axis 'auto x'
     end
 
     if (~isempty(plotinfo.y_range))
         ylim(plotinfo.y_range)
+    else
+        axis 'auto y'
     end
 
-    % end
+end
