@@ -34,3 +34,5 @@ MyPlotFunction(plot_info(3))
 plot_info(4).type = 'linear';
 plot_info(4).plot_title = 'No data';
 MyPlotFunction(plot_info(4))
+
+%test
