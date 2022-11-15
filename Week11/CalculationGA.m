@@ -15,8 +15,8 @@ function GA = CalculationGA(height)
 % R 地球半径
 % GA 重力加速度计算值
 
-loopctrl = length(height);
-mid = zeros(loopctrl,1);
+loopctrl = length(height); % 循环控制
+mid = zeros(1,loopctrl);
 G = 6.672 * 10^(-11);
 M = 5.98 * 10^24;
 R = 6371 * 10^3;

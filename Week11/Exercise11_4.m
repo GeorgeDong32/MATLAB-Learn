@@ -31,9 +31,19 @@ xlabel('\bf高度/ km')
 title('\bf重力加速度图像')
 
 % Export to file
-save GAData GAData; % To .mat
+save GADataFile GAData; % To .mat
 
-
-
-
-
+% 使用文件数据绘制图像
+clear
+load GADataFile.mat
+figure();
+height2 = zeros(81,1);
+g2 = zeros(81,1);
+for i=1:81
+    height2(i) = GAData(i).Height;
+    g2(i) = GAData(i).g;
+end
+plot(height2,g2)
+ylabel('\bf重力加速度值/ m/s^2')
+xlabel('\bf高度/ km')
+title('\bf重力加速度图像2')
