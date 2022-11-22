@@ -7,7 +7,7 @@ function GA = CalculationGA(height)
     % Record of revisions:
     % Date     Programmer   Description of change
     % ======== ============ =====================
-    % 22/11/15 GeorgeDong32 Version 1.0
+    % 22/11/22 GeorgeDong32 Version 1.0
     %
     % Defined variables:
     % G 万有引力常量
