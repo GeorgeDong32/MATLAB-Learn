@@ -6,7 +6,7 @@
 % Record of revisions:
 % Date     Programmer   Description of change
 % ======== ============ =====================
-% 22/11/29 GeorgeDong32 Version 1.0
+% 22/11/29 GeorgeDong32 Version 2.0
 %
 % Defined class:
 % Vector3D
@@ -37,11 +37,11 @@ classdef Vector3D
         end
 
         %subtract
-        function v = minus(this, v2)
-            v = Vector3D(this.x - v2.x, this.y - v2.y, this.z - v2.z);
+        function v = minus(this, obj2)
+            v = Vector3D(this.x - obj2.x, this.y - obj2.y, this.z - obj2.z);
         end
 
-        % dot product & multiply by scalar
+        % dot product & multiply by scalar，替换原生*运算符
         function d = mtimes(this, obj2)
 
             if isnumeric(obj2)
@@ -52,8 +52,18 @@ classdef Vector3D
 
         end
 
+        % dot product
+        function d = dot(this, obj2)
+            d = this.x * obj2.x + this.y * obj2.y + this.z * obj2.z;
+        end
+
         % cross product
         function v = cross(this, obj2)
+            v = Vector3D(this.y * obj2.z - this.z * obj2.y, this.z * obj2.x - this.x * obj2.z, this.x * obj2.y - this.y * obj2.x);
+        end
+
+        % 替换原生^函数，简化计算表达式
+        function v = mpower(this, obj2)
             v = Vector3D(this.y * obj2.z - this.z * obj2.y, this.z * obj2.x - this.x * obj2.z, this.x * obj2.y - this.y * obj2.x);
         end
 
