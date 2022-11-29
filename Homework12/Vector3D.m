@@ -52,17 +52,8 @@ classdef Vector3D
 
         end
 
-        % dot product
-        function d = dot(this, obj2)
-            d = this.x * obj2.x + this.y * obj2.y + this.z * obj2.z;
-        end
-
         % cross product
         function v = cross(this, obj2)
-            v = Vector3D(this.y * obj2.z - this.z * obj2.y, this.z * obj2.x - this.x * obj2.z, this.x * obj2.y - this.y * obj2.x);
-        end
-
-        function v = mpower(this, obj2)
             v = Vector3D(this.y * obj2.z - this.z * obj2.y, this.z * obj2.x - this.x * obj2.z, this.x * obj2.y - this.y * obj2.x);
         end
 
