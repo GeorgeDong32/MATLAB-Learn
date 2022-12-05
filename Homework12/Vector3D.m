@@ -13,7 +13,7 @@
 
 classdef Vector3D
 
-    properties
+    properties (GetAccess = public, SetAccess = public)
         x;
         y;
         z;
@@ -75,6 +75,33 @@ classdef Vector3D
         % divide by scalar
         function v = mrdivide(this, s)
             v = Vector3D(this.x / s, this.y / s, this.z / s);
+        end
+
+        % get function
+        function x = get.x(this)
+            x = this.x;
+        end
+
+        function y = get.y(this)
+            y = this.y;
+        end
+
+        function z = get.z(this)
+            z = this.z;
+        end
+
+        % set function(put)
+
+        function this = set.x(this, x)
+            this.x = x;
+        end
+
+        function this = set.y(this, y)
+            this.y = y;
+        end
+
+        function this = set.z(this, z)
+            this.z = z;
         end
 
     end

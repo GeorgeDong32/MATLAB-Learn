@@ -34,7 +34,7 @@ disp(v5);
 
 % Test cross product
 disp("v1 x v2 = ");
-v6 = v1^v2;
+v6 = v1 ^ v2;
 disp(v6);
 
 % Test scalar multiplication
@@ -50,3 +50,12 @@ disp(v8);
 % Test magnitude
 disp("v1's magnitude is:");
 disp(v1.magnitude());
+
+% Test get method
+disp("v1's x component is:");
+disp(v1.x);
+
+% Test set method(put)
+disp("After setting v1's x component to 10, v1 is:");
+v1.x = 10;
+disp(v1.x);
