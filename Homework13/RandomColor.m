@@ -32,4 +32,6 @@ function colorStr = RandomColor()
         colorStr = 'black';
     end
 
+    % test codes
+    %disp(colorStr);
 end
