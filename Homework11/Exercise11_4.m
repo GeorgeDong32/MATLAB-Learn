@@ -6,7 +6,7 @@
 % Record of revisions:
 % Date     Programmer   Description of change
 % ======== ============ =====================
-% 22/11/15 GeorgeDong32 Version 1.0
+% 22/11/22 GeorgeDong32 Version 2.0
 %
 % Defined variables:
 % height 高度数据
@@ -33,6 +33,12 @@ title('\bf重力加速度图像')
 
 % Export to file
 save GADataFile GAData; % To .mat
+fid = fopen('GAData.txt','w');
+fprintf(fid,'%s    %s     %s\n\n','Height','g','unit');
+for i = 1:81
+    fprintf(fid,'%5d  %.4f  %s\n',GAData(i).Height,GAData(i).g,GAData(i).unit);
+end
+fclose(fid);
 
 % 使用文件数据绘制图像
 clear
