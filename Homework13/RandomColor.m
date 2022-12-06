@@ -7,7 +7,7 @@ function colorStr = RandomColor()
     % Record of revisions:
     % Date     Programmer   Description of change
     % ======== ============ =====================
-    % 22/12/6  GeorgeDong32 Version 1.0
+    % 22/12/6  GeorgeDong32 Version 2.0
     %
     % Defined variables:
     % colorStr   the random color string
