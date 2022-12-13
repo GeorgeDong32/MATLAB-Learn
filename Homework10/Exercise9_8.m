@@ -2,6 +2,7 @@
 %
 % Purpose:
 % insert "not" after every "is"
+% 依题意在每个‘is’字符串后面插入‘not’
 %
 % Record of revisions:
 % Date     Programmer   Description of change
@@ -21,6 +22,8 @@ inputstr = 'This sentence is a test, is it not';
 % inputstr = input('Please input your string')
 
 targetstr = 'is';
-replacestr = 'is not';
+replacestr = 'isnot';
+count = strfind(inputstr, targetstr);
 resultstr = strrep(inputstr, targetstr, replacestr);
-fprintf('The result is: \"%s\"', resultstr)
+fprintf('There are %d \"%s\" in the string\n', count, targetstr);
+fprintf('The result is: \"%s\"\n', resultstr)
