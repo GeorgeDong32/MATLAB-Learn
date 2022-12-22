@@ -1,41 +1,64 @@
-% Calculate the times at which to plot the sine function
-t = 0:0.1:10;
-% Calculate sin(x)*sin(y) for the first time
-a = cos(t(1));
-[array1,array2] = meshgrid(-3*pi:pi/10:3*pi,-3*pi:pi/10:3*pi);
-z = a .* sin(array1) .* sin(array2);
-% Plot the function.
+% plot a heart
+[x, y, z] = meshgrid(linspace(-1.3, 1.3, 512));
+val = (x .^ 2 + (9/4) * y .^ 2 + z .^ 2 - 1) .^ 3 -x .^ 2 .* z .^ 3 - (9/80) * y .^ 2 .* z .^ 3;
+% Calculate the heart surface
+p = isosurface(x, y, z, val, 0);
+% Plot the heart surface
+hndl = patch(p);
+view(-10, 24)
+hndl.FaceColor = [1 0 0];
+hndl.LineStyle = 'none';
+axis equal
+camlight
+lighting phong
+
+axis off
+
+% Plot a animated heart
+[x, y, z] = meshgrid(linspace(-1.3, 1.3, 512));
+val = (x .^ 2 + (9/4) * y .^ 2 + z .^ 2 - 1) .^ 3 -x .^ 2 .* z .^ 3 - (9/80) * y .^ 2 .* z .^ 3;
+[faces, verts, colors] = isosurface(x, y, z, val, 0, x);
+leng = 60; % Num of Images in the Movie
+fleng = length(faces); % The length of faces
+M(leng) = struct('cdata', [], 'colormap', []);
 figure(1);
-hndl = surf(array1,array2,z);
-% ax = gca;
-% ax.NextPlot = 'replaceChildren';
-xlabel('\bfx');
-ylabel('\bfy');
-zlabel('\bfAmp');
-title(['\bfSine Wave Animation at t = ' num2str(t(1),'%5.2f')]);
-% Set the size of the z axes
-set(gca,'ZLim',[-1 1]);
-% Capture the first frame of the movie
-M(length(t))=struct('cdata',[],'colormap',[]);
-m = 1;
-M(m) = getframe(gcf);
-% Now do the animation
-for ii = 2:length(t)
-% Pause for a moment
-drawnow;
-%pause(0.1);
-% Calculate sine(x) for the new time
-a = cos(t(ii));
-z = a .* sin(array1) .* sin(array2);
-% Update the line
-set(hndl, 'ZData', z);
-% Update the title
-title(['\bfSine Wave Animation at t = '
-num2str(t(ii),'%5.2f')]);
-% Capture the next frame of the movie
-m = m + 1;
-M(m) = getframe(gcf);
+hndl = patch('Faces', faces(1:round(fleng / leng), :), 'Vertices', verts);
+hndl.FaceColor = [1 0 0];
+hndl.LineStyle = 'none';
+view(-10, 24);
+axis off
+axis equal
+set(gca, 'ZLim', [-1 1.3]); set(gca, 'XLim', [-1.3 1.3]);
+set(gca, 'YLim', [-1.3 1.3]);
+camlight
+lighting gouraud
+M(1) = getframe(gcf);
+im{leng} = frame2im(M(1));
+im{1} = frame2im(M(1));
+
+for ii = 2:leng
+    hndl.Faces = faces(1:round(fleng / leng * ii), :);
+    drawnow;
+    M(ii) = getframe(gcf);
+    im{ii} = frame2im(M(ii));
 end
-% Now we have the movie, so play it back twice
-fig = figure;
-movie(fig,M,1,10);
+
+filename = 'heart.gif'; % Specify the output file name
+
+for idx = 1:leng
+    [A, map] = rgb2ind(im{idx}, 256);
+
+    if idx == 1
+        imwrite(A, map, filename, 'gif', 'LoopCount', Inf, 'DelayTime', 0.05);
+    else
+        imwrite(A, map, filename, 'gif', 'WriteMode', 'append', 'DelayTime', 0.05);
+    end
+
+end
+
+for ii = leng:(leng + leng2)
+    a = 0.9 + 0.1 * cos(12 * pi * ii / 60);
+    hndl.Vertices = a * verts;
+    M(ii) = getframe(gcf);
+    im{ii} = frame2im(M(ii));
+end
