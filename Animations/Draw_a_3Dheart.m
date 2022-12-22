@@ -1,19 +1,3 @@
-% plot a heart
-[x, y, z] = meshgrid(linspace(-1.3, 1.3, 512));
-val = (x .^ 2 + (9/4) * y .^ 2 + z .^ 2 - 1) .^ 3 -x .^ 2 .* z .^ 3 - (9/80) * y .^ 2 .* z .^ 3;
-% Calculate the heart surface
-p = isosurface(x, y, z, val, 0);
-% Plot the heart surface
-hndl = patch(p);
-view(-10, 24)
-hndl.FaceColor = [1 0 0];
-hndl.LineStyle = 'none';
-axis equal
-camlight
-lighting phong
-
-axis off
-
 % Plot a animated heart
 [x, y, z] = meshgrid(linspace(-1.3, 1.3, 512));
 val = (x .^ 2 + (9/4) * y .^ 2 + z .^ 2 - 1) .^ 3 -x .^ 2 .* z .^ 3 - (9/80) * y .^ 2 .* z .^ 3;
@@ -43,7 +27,7 @@ for ii = 2:leng
     im{ii} = frame2im(M(ii));
 end
 
-filename = 'heart.gif'; % Specify the output file name
+filename = 'heart3D.gif'; % Specify the output file name
 
 for idx = 1:leng
     [A, map] = rgb2ind(im{idx}, 256);
@@ -54,11 +38,4 @@ for idx = 1:leng
         imwrite(A, map, filename, 'gif', 'WriteMode', 'append', 'DelayTime', 0.05);
     end
 
-end
-
-for ii = leng:(leng + leng2)
-    a = 0.9 + 0.1 * cos(12 * pi * ii / 60);
-    hndl.Vertices = a * verts;
-    M(ii) = getframe(gcf);
-    im{ii} = frame2im(M(ii));
 end
