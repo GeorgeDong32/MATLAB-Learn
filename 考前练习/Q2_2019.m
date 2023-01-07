@@ -1,7 +1,7 @@
-% Script file: Q1_2019.m
+% Script file: Q2_2019.m
 %
 % Purpose:
-% Calculate some numbers
+% Plot a three-dimensional line plot, a surface plot, and a stacked bar
 %
 % Record of revisions:
 % Date     Programmer   Description of change
@@ -9,6 +9,14 @@
 % 23/1/7   GeorgeDong32 Version 1.0
 %
 % Defined variables:
+% x -- x-axis
+% y -- y-axis
+% t -- time
+% r1 -- radius 1
+% r2 -- radius 2
+% theta -- angle
+% phi -- angle
+% z -- z-axis
 
 %Q2_1
 figure();
