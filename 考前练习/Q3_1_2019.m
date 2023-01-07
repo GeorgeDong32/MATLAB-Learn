@@ -1,7 +1,7 @@
 % Script file: Q3_2019.m
 %
 % Purpose:
-%
+% This program plots four functions in one figure.
 %
 % Record of revisions:
 % Date     Programmer   Description of change
@@ -9,6 +9,11 @@
 % 23/1/7   GeorgeDong32 Version 1.0
 %
 % Defined variables:
+% x -- x-axis
+% y1 -- y-axis of sin(x)
+% y2 -- y-axis of cos(x)
+% y3 -- y-axis of exp(x)
+% y4 -- y-axis of log(1 + x)
 
 x = -10:0.1:10;
 y1 = sin(x);
